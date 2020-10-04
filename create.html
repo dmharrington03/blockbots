@@ -11,6 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
 
         <script defer src="./popup.js"></script>
+        <script defer src="./view-handler.js"></script>
         <link rel="stylesheet" href="style.css">
       </head>
     <body>
@@ -68,14 +69,14 @@
               </li>
               <li class="uk-nav-header">Views</li>
               <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Blocks</a></li>
-              <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: grid"></span> Item</a></li>
+              <li><button onclick="toggle_view()"><span class="uk-margin-small-right" uk-icon="icon: grid"></span> Item</button></li>
               <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Code</a></li>
           </ul> 
         </div>
       </aside>
 
-      <div id="right-col">
-        <div class="uk-container uk-margin-medium-top">
+      <div id="right-col" style="border: 2px solid blue;">
+        <div class="uk-container uk-margin-medium-top" id="blocks">
           <div uk-grid>
 
               <div class="uk-width-5-6" uk-height-viewport="offset-top: true; offset-bottom: 20">
@@ -117,6 +118,22 @@
             </div>
             
           </div>
+        </div>
+
+        <div id="code">
+
+            <div class="uk-flex uk-flex-center uk-text-center">
+              <p class="uk-width-1-2">Pudding gummi bears wafer. Powder lemon drops cake topping cupcake carrot cake 
+                chocolate cake pastry sugar plum. Dessert jelly beans sugar plum cheesecake. 
+                Brownie sugar plum chocolate topping sweet cake. Soufflé cotton candy jelly beans 
+                toffee. Donut apple pie cheesecake sugar plum chocolate bar cake macaroon sweet. 
+                Gummies powder marzipan gummi bears candy topping lollipop. Jelly tootsie roll sugar
+                 plum liquorice muffin marzipan sweet roll pastry chocolate cake. Sugar plum apple 
+                 pie sesame snaps carrot cake ice cream pastry. Ice cream cookie topping chocolate bar.
+                Chupa chups toffee sweet roll. Soufflé muffin lollipop chocolate carrot cake. 
+                Sweet cake topping tiramisu pastry. Gingerbread caramels gingerbread dessert gingerbread muffin.</p>
+            </div>
+
         </div>
       </div>
 

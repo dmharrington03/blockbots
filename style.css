@@ -17,6 +17,7 @@
 
 #right-col {
     margin-left: 15%;
+    height: 100%;
 }
 
 #blocklyDiv {
@@ -86,4 +87,13 @@
 .field:focus {
     outline: 1px solid #39f;
     /* box-shadow: 0 0 3pt 2pt lightblue; */
+}
+
+#code {
+    border: 2px solid lightcoral;
+    position: absolute;
+    transform: translate(0, 0);
+    bottom: 50%;
+
+    visibility: hidden;
 }
