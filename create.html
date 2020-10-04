@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Blockbots!</title>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+        
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
+
+        <script defer src="./popup.js"></script>
+        <link rel="stylesheet" href="style.css">
+      </head>
+    <body>
+
+
+      <nav id="top-nav" class="uk-navbar-container uk-light" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+          <a href="index.html" class="uk-logo">Blockbots</a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                  <a href="#">Create</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#">Program</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">Robot Config</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="#">New</a></li>
+            </ul>
+        </div>
+        
+      </nav>
+
+      <aside id="left-col" class="uk-dark">
+        <div class="bar-wrap"> 
+          <ul class="uk-nav-default uk-nav-parent-icon" uk-nav> 
+              <li contenteditable="true" class="field">
+                <h4 class="uk-heading-divider">
+                  <span id="name-content">Untitled</span>
+                  <!-- <span class="edit-icon" uk-icon="pencil"></span> -->
+                </h4>
+              </li>
+
+              <li contenteditable="true" class="field">
+                <h6><i>Add description</i></h6>
+              </li>
+              <hr class="uk-divider-icon">
+              <li class="uk-nav-header">Config Summary</li>
+              <li class="uk-parent">
+                  <a href="#">Connections</a>
+                  <!-- <ul class="uk-nav-sub"></ul> -->
+              </li>
+              <li class="uk-parent">
+                  <a href="#">Hardware</a>
+                  <ul class="uk-nav-sub">
+                      <li><a href="#">Sub item</a></li>
+                      <li><a href="#">Sub item</a></li>
+                  </ul>
+              </li>
+              <li class="uk-nav-header">Views</li>
+              <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Blocks</a></li>
+              <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: grid"></span> Item</a></li>
+              <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Code</a></li>
+          </ul> 
+        </div>
+      </aside>
+
+      <div id="right-col">
+        <div class="uk-container uk-margin-medium-top">
+          <div uk-grid>
+
+              <div class="uk-width-5-6" uk-height-viewport="offset-top: true; offset-bottom: 20">
+                <div id="blocklyDiv" class="uk-width-expand">
+                  <xml id="toolbox" style="display: none">
+                    <category name="Core" colour="200">
+                      <block type="controls_if"></block>
+                      <block type="controls_repeat_ext"></block>
+                      <block type="logic_compare"></block>
+                      <block type="math_number"></block>
+                      <block type="math_arithmetic"></block>
+                      <block type="text"></block>
+                      <block type="text_print"></block>
+                    </category>
+                    <category name="Robot" colour="100">
+                        <block type="move_linear"></block>
+                        <block type="rotate"></block>
+                        <block type="hop"></block>
+                        <block type="toggle_light"></block>
+                        <block type="set_light_color"></block>
+                    </category>
+                  </xml>
+                </div>
+
+                <p>
+                  Output: <code class="console"><span id="console"></span></code>
+                </p>
+              </div>
+            
+            <div class="uk-width-1-6">
+              <div class="uk-flex-inline uk-flex-between">
+                <p uk-margin>
+                  <button id="but-ico" class="uk-button uk-button-secondary" href="#modal-center" uk-toggle><span uk-icon="icon: play; ratio: 1.3;"></span>
+                    <span class="uk-visible@l">Run</span></button>
+                  <button id="but-ico" class="uk-button uk-button-secondary"><span uk-icon="icon: upload; ratio: 1.3;"></span>
+                    <span class="uk-visible@l">Upload</span></button>
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+      <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a>
+
+      <div id="modal-center" class="uk-flex-top" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+              <button class="uk-modal-close-default" type="button" uk-close></button>
+
+              <h3 class="uk-heading-divider">Send to Robot:</h3>
+
+              <form class="uk-form-horizontal" autocomlpete="off">
+                <label class="uk-form-label" for="name">Your Name:</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                  <input class="uk-input" type="text" id="name" placeholder="John Smith">
+                </div>
+                
+                <label class="uk-form-label" for="name">Program Name:</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                  <input class="uk-input" type="text" id="name" placeholder="&quot;Dance&quot;">
+                </div>
+                
+                <label class="uk-form-label" for="ip">IP:</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                  <input class="uk-input" type="text" id="ip" placeholder="e.g. 192.168.1.12">
+                </div>
+                
+                <div class="uk-flex uk-flex-right">
+                  <button type="submit" class="uk-button uk-button-primary uk-margin-top">Send</button>
+                </div>
+              </form>
+              
+          </div>
+      </div>
+
+      <script src="./blockly-master/blockly_compressed.js"></script>
+      <script src="./blockly-master/blocks_compressed.js"></script>
+      <script src="./blockly-master/javascript_compressed.js"></script>
+      <script src="./blockly-master/msg/js/en.js"></script>
+      <script src="blocks.js"></script>
+      <script src="script.js"></script>
+
+    </body>
+</html>

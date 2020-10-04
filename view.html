@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Blockbots!</title>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+        
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
+
+        <script defer src="./popup.js"></script>
+        <link rel="stylesheet" href="style.css">
+      </head>
+    <body>
+
+      <nav id="top-nav" class="uk-navbar-container uk-light" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+          <a href="index.html" class="uk-logo">Blockbots</a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                  <a href="#">Create</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="create.html">Program</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">Robot Config</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li><a href="#">View</a></li>
+                <li><a href="#">New</a></li>
+            </ul>
+        </div>
+        
+      </nav>
+
+    
+      <section style="display: none;" id="content" class="uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-height-viewport="offset-top: true">
+        <div class="uk-card uk-card-default uk-card-body">
+          <h2 class="uk-card-title">View Queued Programs</h2>
+
+          <form class="uk-form-stacked" autocomplete="off">
+            <label class="uk-form-label" for="host-ip">Host IP</label>
+            <div class="uk-form-controls">
+              <input type="text" class="uk-input" placeholder="e.g. 192.168.1.12">
+            </div>
+
+            <div class="uk-margin-top">
+              <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Go</button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+      <main class="view-queue uk-flex uk-flex-center uk-flex-middle" uk-height-viewport="offset-top: true">
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-2">
+          <h2 class="uk-card-title">Queued Programs on <span id="port-number">192.168.19.1</span></h2>
+          
+          <ul class="program-list uk-list uk-list-striped">
+            <li class="uk-flex uk-flex-between">
+              <div>
+                Program 1 – 
+                <i>Daniel Harrington</i>
+              </div>
+              <button class="uk-icon-button" uk-icon="play-circle"></button>
+            </li>
+            <li class="uk-flex uk-flex-between">
+              <div>
+                Program 2 – 
+                <i>Bob Ross</i>
+              </div>
+              <button class="uk-icon-button uk-float-right " uk-icon="play-circle"></button>
+            </li>
+            <li class="uk-flex uk-flex-between">
+              <div>
+                Program 3 – 
+                <i>Hayao Miyazaki</i>
+              </div>
+              <button class="uk-icon-button uk-float-right " uk-icon="play-circle"></button>
+            </li>
+          </ul>
+        </div>
+      </main>
+
+      
+
+
+    </body>
+</html>

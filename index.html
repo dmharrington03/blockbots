@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Blockbots!</title>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/css/uikit.min.css" />
+        
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
+
+        <script defer src="./popup.js"></script>
+        <link rel="stylesheet" href="style.css">
+      </head>
+    <body>
+
+      <nav id="top-nav" class="uk-navbar-container uk-light" uk-navbar="mode: click">
+        <div class="uk-navbar-left">
+          <a href="index.html" class="uk-logo">Blockbots</a>
+        </div>
+
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                  <a href="">Create</a>
+                  <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="create.html">Program</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li><a href="#">Robot Config</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li><a href="view.html">View</a></li>
+                <li><a href="#">New</a></li>
+            </ul>
+        </div>
+        
+      </nav>
+
+    
+      <main id="content" class="uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-height-viewport="offset-top: true">
+        <div class="uk-card uk-card-default uk-card-body">
+          
+            <h1 id="heading" class="uk-heading-large uk-text-center uk-padding-small">Welcome!</h1>
+          
+          <div class="uk-flex uk-flex-center">
+            <button class="uk-button uk-button-primary" onclick="popup()">Get Started</button>
+            <button class="uk-button uk-button-secondary uk-margin-left">Setup</button>
+          </div>
+        </div>
+
+      </main>
+
+      
+      <section class="uk-flex uk-flex-center uk-flex-middle" id="popup">
+      	<div class="popup uk-card uk-card-default uk-card-body">
+            <button class="close-window" onclick="close()"><span uk-icon="icon: minus"></span></button>
+            <h1 class="uk-heading-divider uk-heading-small">New Project:</h1>
+            <form>
+              <input class="uk-input" type="text" placeholder="Name">
+
+            </form>
+      	</div>
+      </section>
+
+
+    </body>
+</html>
