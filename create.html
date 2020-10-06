@@ -68,14 +68,22 @@
                   </ul>
               </li>
               <li class="uk-nav-header">Views</li>
-              <li class="uk-active"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Blocks</a></li>
-              <li><button onclick="toggle_view()"><span class="uk-margin-small-right" uk-icon="icon: grid"></span> Item</button></li>
-              <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Code</a></li>
+              <li>
+                <button onclick="block_view()" class="uk-button uk-width-expand uk-margin-small">
+                  <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Blocks
+                </button>
+              </li>
+              
+              <li>
+                <button onclick="code_view()" class="uk-button uk-width-expand uk-margin-small">
+                  <span class="uk-margin-small-right" uk-icon="icon: code"></span> Code
+                </button>
+              </li>
           </ul> 
         </div>
       </aside>
 
-      <div id="right-col" style="border: 2px solid blue;">
+      <div id="right-col">
         <div class="uk-container uk-margin-medium-top" id="blocks">
           <div uk-grid>
 
@@ -123,7 +131,7 @@
         <div id="code">
 
             <div class="uk-flex uk-flex-center uk-text-center">
-              <p class="uk-width-1-2">Pudding gummi bears wafer. Powder lemon drops cake topping cupcake carrot cake 
+              <code class="uk-width-1-2" id="display-code">Pudding gummi bears wafer. Powder lemon drops cake topping cupcake carrot cake 
                 chocolate cake pastry sugar plum. Dessert jelly beans sugar plum cheesecake. 
                 Brownie sugar plum chocolate topping sweet cake. Soufflé cotton candy jelly beans 
                 toffee. Donut apple pie cheesecake sugar plum chocolate bar cake macaroon sweet. 
@@ -131,13 +139,12 @@
                  plum liquorice muffin marzipan sweet roll pastry chocolate cake. Sugar plum apple 
                  pie sesame snaps carrot cake ice cream pastry. Ice cream cookie topping chocolate bar.
                 Chupa chups toffee sweet roll. Soufflé muffin lollipop chocolate carrot cake. 
-                Sweet cake topping tiramisu pastry. Gingerbread caramels gingerbread dessert gingerbread muffin.</p>
+                Sweet cake topping tiramisu pastry. Gingerbread caramels gingerbread dessert gingerbread muffin.
+              </code>
             </div>
 
         </div>
       </div>
-
-      <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a>
 
       <div id="modal-center" class="uk-flex-top" uk-modal>
           <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
@@ -147,9 +154,9 @@
               <h3 class="uk-heading-divider">Send to Robot:</h3>
 
               <form class="uk-form-horizontal" autocomlpete="off">
-                <label class="uk-form-label" for="name">Your Name:</label>
+                <label class="uk-form-label" for="person">Your Name:</label>
                 <div class="uk-form-controls uk-form-controls-text">
-                  <input class="uk-input" type="text" id="name" placeholder="John Smith">
+                  <input class="uk-input" type="text" id="person" placeholder="John Smith">
                 </div>
                 
                 <label class="uk-form-label" for="name">Program Name:</label>
@@ -173,8 +180,11 @@
       <script src="./blockly-master/blockly_compressed.js"></script>
       <script src="./blockly-master/blocks_compressed.js"></script>
       <script src="./blockly-master/javascript_compressed.js"></script>
+      <script src="./blockly-master/python_compressed.js"></script>
       <script src="./blockly-master/msg/js/en.js"></script>
-      <script src="blocks.js"></script>
+      <script src="robot-blockly/robot_blocks.js"></script>
+      <script src="robot-blockly/javascript.js"></script>
+      <script src="robot-blockly/python.js"></script>
       <script src="script.js"></script>
 
     </body>

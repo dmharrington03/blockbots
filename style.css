@@ -94,6 +94,5 @@
     position: absolute;
     transform: translate(0, 0);
     bottom: 50%;
-
     visibility: hidden;
 }
