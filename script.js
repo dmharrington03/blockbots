@@ -12,7 +12,7 @@ let cmd_queue = {
 };
 
 function queue_init(name) {
-    cmd_queue.creator = name
+    cmd_queue.creator = name;
 }
 
 function add_to_queue(name, spec) {
@@ -26,7 +26,7 @@ function con_write(msg) {
     con_out.innerHTML = msg;
 }
 
-function generate() {
+function generate_to_js() {
     Blockly.JavaScript.addReservedWords('code');
 
     let code = Blockly.JavaScript.workspaceToCode(workspace);
@@ -37,17 +37,11 @@ function generate() {
         alert(e);
     }
 }
-/*
-function push_to_dog() {
 
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            // Successfully sent instructions
-        }
-    };
+function generate_python() {
+    let code = Blockly.Python.workspaceToCode(workspace);
 
-    xhttp.open("POST", "/go", true);
-    xhttp.setRequestHeader("Content-type", "application/json")
-    xhttp.send(cmd_queue);
-}*/
+    let display = document.getElementById('display-code');
+
+    display.innerHTML = code;
+}
