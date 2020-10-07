@@ -35,7 +35,6 @@
                 </div>
                 </li>
                 <li><a href="view.html">View</a></li>
-                <li><a href="#">New</a></li>
             </ul>
         </div>
         
@@ -69,14 +68,16 @@
               </li>
               <li class="uk-nav-header">Views</li>
               <li>
-                <button onclick="block_view()" class="uk-button uk-width-expand uk-margin-small">
-                  <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Blocks
+                <button id="block-button" onclick="block_view()" class="uk-button uk-button-default uk-width-expand uk-margin-small">
+                  <span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span>
+                  <span class="uk-visible@l">Blocks</span>
                 </button>
               </li>
               
               <li>
-                <button onclick="code_view()" class="uk-button uk-width-expand uk-margin-small">
-                  <span class="uk-margin-small-right" uk-icon="icon: code"></span> Code
+                <button id="code-button" onclick="code_view()" class="uk-button uk-button-default uk-width-expand uk-margin-small">
+                  <span class="uk-margin-small-right" uk-icon="icon: code"></span> 
+                  <span class="uk-visible@l">Code</span>
                 </button>
               </li>
           </ul> 
