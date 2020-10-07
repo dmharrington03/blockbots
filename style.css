@@ -96,3 +96,7 @@
     bottom: 50%;
     visibility: hidden;
 }
+
+#block-button {
+    border-color: #a2a2a2;
+}

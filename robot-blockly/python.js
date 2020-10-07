@@ -32,7 +32,7 @@ Blockly.Python['toggle_light'] = function(block) {
     else
         state = 0
 
-    return `toggle_light(${state})\n`;
+    return `light(${state ? "True" : "False"})\n`;
 };
 
 Blockly.Python['set_light_color'] = function(block) {
