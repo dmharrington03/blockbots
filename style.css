@@ -76,15 +76,18 @@
     border: none;
 }
 
-.field {
+[contenteditable="true"] {
     transition: ease-in-out .2s;
+    padding-left: 8px;
+    padding-top: 8px;
 }
 
-.field:hover {
+
+[contenteditable="true"]:hover {
     background: #f5f5f5;
 }
 
-.field:focus {
+[contenteditable="true"]:focus {
     outline: 1px solid #39f;
     /* box-shadow: 0 0 3pt 2pt lightblue; */
 }
