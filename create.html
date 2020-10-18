@@ -13,6 +13,10 @@
         <script defer src="./popup.js"></script>
         <script defer src="./view-handler.js"></script>
         <link rel="stylesheet" href="style.css">
+
+        <!-- Syntax highlighting -->
+        <script src="./Prism/prism.js"></script>
+        <link rel="stylesheet" type="text/css" href="./Prism/prism.css">
       </head>
     <body>
 
@@ -24,16 +28,7 @@
 
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li>
-                  <a href="#">Create</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="#">Program</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li><a href="#">Robot Config</a></li>
-                    </ul>
-                </div>
-                </li>
+                <li><a href="#">Create</a></li>
                 <li><a href="view.html">View</a></li>
             </ul>
         </div>
@@ -54,18 +49,7 @@
                 <h6><i>Add description</i></h6>
               </li>
               <hr class="uk-divider-icon">
-              <li class="uk-nav-header">Config Summary</li>
-              <li class="uk-parent">
-                  <a href="#">Connections</a>
-                  <!-- <ul class="uk-nav-sub"></ul> -->
-              </li>
-              <li class="uk-parent">
-                  <a href="#">Hardware</a>
-                  <ul class="uk-nav-sub">
-                      <li><a href="#">Sub item</a></li>
-                      <li><a href="#">Sub item</a></li>
-                  </ul>
-              </li>
+              
               <li class="uk-nav-header">Views</li>
               <li>
                 <button id="block-button" onclick="block_view()" class="uk-button uk-button-default uk-width-expand uk-margin-small">
@@ -84,8 +68,8 @@
         </div>
       </aside>
 
-      <div id="right-col">
-        <div class="uk-container uk-margin-medium-top" id="blocks">
+      <div id="right-col" class="uk-flex uk-flex-center">
+        <div class="uk-width-5-6 uk-margin-medium-top" id="blocks">
           <div uk-grid>
 
               <div class="uk-width-5-6" uk-height-viewport="offset-top: true; offset-bottom: 20">
@@ -110,18 +94,18 @@
                   </xml>
                 </div>
 
-                <p>
-                  Output: <code class="console"><span id="console"></span></code>
-                </p>
               </div>
             
             <div class="uk-width-1-6">
               <div class="uk-flex-inline uk-flex-between">
                 <p uk-margin>
-                  <button id="but-ico" class="uk-button uk-button-secondary" href="#modal-center" uk-toggle><span uk-icon="icon: play; ratio: 1.3;"></span>
-                    <span class="uk-visible@l">Run</span></button>
-                  <button id="but-ico" class="uk-button uk-button-secondary"><span uk-icon="icon: upload; ratio: 1.3;"></span>
-                    <span class="uk-visible@l">Upload</span></button>
+                  <button id="but-ico" 
+                    onclick="fill_name()" 
+                    class="uk-button uk-button-secondary" 
+                    href="#modal-center" uk-toggle>
+                    <span uk-icon="icon: play; ratio: 1.3;"></span>
+                    <span class="uk-visible@l">Run</span>
+                  </button>
                 </p>
               </div>
             </div>
@@ -129,21 +113,8 @@
           </div>
         </div>
 
-        <div id="code">
-
-            <div class="uk-flex uk-flex-center uk-text-center">
-              <code class="uk-width-1-2" id="display-code">Pudding gummi bears wafer. Powder lemon drops cake topping cupcake carrot cake 
-                chocolate cake pastry sugar plum. Dessert jelly beans sugar plum cheesecake. 
-                Brownie sugar plum chocolate topping sweet cake. Soufflé cotton candy jelly beans 
-                toffee. Donut apple pie cheesecake sugar plum chocolate bar cake macaroon sweet. 
-                Gummies powder marzipan gummi bears candy topping lollipop. Jelly tootsie roll sugar
-                 plum liquorice muffin marzipan sweet roll pastry chocolate cake. Sugar plum apple 
-                 pie sesame snaps carrot cake ice cream pastry. Ice cream cookie topping chocolate bar.
-                Chupa chups toffee sweet roll. Soufflé muffin lollipop chocolate carrot cake. 
-                Sweet cake topping tiramisu pastry. Gingerbread caramels gingerbread dessert gingerbread muffin.
-              </code>
-            </div>
-
+        <div id="code" class="uk-width-1-2">
+              <pre><code id="display-code" class="language-python"></code></pre>
         </div>
       </div>
 
@@ -155,15 +126,16 @@
               <h3 class="uk-heading-divider">Send to Robot:</h3>
 
               <form class="uk-form-horizontal" autocomlpete="off">
+                <label class="uk-form-label" for="name">Program Name:</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                  <input class="uk-input" type="text" id="name" placeholder="&quot;Dance&quot;">
+                </div>
+
                 <label class="uk-form-label" for="person">Your Name:</label>
                 <div class="uk-form-controls uk-form-controls-text">
                   <input class="uk-input" type="text" id="person" placeholder="John Smith">
                 </div>
                 
-                <label class="uk-form-label" for="name">Program Name:</label>
-                <div class="uk-form-controls uk-form-controls-text">
-                  <input class="uk-input" type="text" id="name" placeholder="&quot;Dance&quot;">
-                </div>
                 
                 <label class="uk-form-label" for="ip">IP:</label>
                 <div class="uk-form-controls uk-form-controls-text">
@@ -187,6 +159,5 @@
       <script src="robot-blockly/javascript.js"></script>
       <script src="robot-blockly/python.js"></script>
       <script src="script.js"></script>
-
     </body>
 </html>

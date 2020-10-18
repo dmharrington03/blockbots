@@ -38,10 +38,16 @@ function generate_to_js() {
     }
 }
 
+function fill_name() {
+    document.querySelector('#name').value = document.querySelector('#name-content').innerText;
+}
+
+
 function generate_python() {
-    let code = Blockly.Python.workspaceToCode(workspace);
+    let code = Blockly.Python.workspaceToCode(workspace) || "Nothing here yet, go to the blocks window to write your program!";
 
     let display = document.getElementById('display-code');
 
     display.innerHTML = code;
+    Prism.highlightAll();
 }
