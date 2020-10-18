@@ -93,7 +93,6 @@
 }
 
 #code {
-    border: 2px solid lightcoral;
     position: absolute;
     transform: translate(0, 0);
     bottom: 50%;
@@ -102,4 +101,8 @@
 
 #block-button {
     border-color: #a2a2a2;
+}
+
+.program-queue {
+    display: none;
 }

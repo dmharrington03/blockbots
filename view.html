@@ -10,7 +10,7 @@
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.7/dist/js/uikit-icons.min.js"></script>
 
-        <script defer src="./popup.js"></script>
+        <script src="./view-handler.js"></script>
         <link rel="stylesheet" href="style.css">
       </head>
     <body>
@@ -22,16 +22,7 @@
 
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li>
-                  <a href="#">Create</a>
-                  <div class="uk-navbar-dropdown">
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="create.html">Program</a></li>
-                        <li class="uk-nav-divider"></li>
-                        <li><a href="#">Robot Config</a></li>
-                    </ul>
-                </div>
-                </li>
+                <li><a href="create.html">Create</a></li>
                 <li><a href="#">View</a></li>
             </ul>
         </div>
@@ -39,9 +30,9 @@
       </nav>
 
     
-      <section style="display: none;" id="content" class="uk-flex uk-flex-center uk-flex-middle uk-flex-column" uk-height-viewport="offset-top: true">
-        <div class="uk-card uk-card-default uk-card-body">
-          <h2 class="uk-card-title">View Queued Programs</h2>
+      <section id="connect-form" uk-modal="esc-close: false; bg-close: false">
+        <div class="uk-modal-dialog uk-margin-auto-vertical uk-modal-body">
+          <h2 class="uk-modal-title">View Queued Programs</h2>
 
           <form class="uk-form-stacked" autocomplete="off">
             <label class="uk-form-label" for="host-ip">Host IP</label>
@@ -50,13 +41,14 @@
             </div>
 
             <div class="uk-margin-top">
-              <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Go</button>
+              <button type="submit" class="uk-modal-close uk-button uk-button-primary uk-width-1-1">Go</button>
             </div>
           </form>
         </div>
 
       </section>
 
+      <div class="program-queue">
       <main class="view-queue uk-flex uk-flex-center uk-flex-middle" uk-height-viewport="offset-top: true">
         <div class="uk-card uk-card-default uk-card-body uk-width-1-2">
           <h2 class="uk-card-title">Queued Programs on <span id="port-number">192.168.19.1</span></h2>
@@ -87,8 +79,10 @@
         </div>
       </main>
 
-      
+    </div>
 
-
+    <script>
+      connect_modal();
+    </script>
     </body>
 </html>

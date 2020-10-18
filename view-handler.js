@@ -20,3 +20,11 @@ function block_view() {
     blockButton.style.borderColor = "#a2a2a2";
     codeButton.style.borderColor = "#e5e5e5";
 }
+
+function connect_modal() {
+    UIkit.modal('#connect-form').show();
+}
+
+function get_queue() {
+    //TODO
+}
