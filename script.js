@@ -8,12 +8,9 @@ let con_out = document.querySelector('#console');
 // Setup functions
 let cmd_queue = {
     "creator": null,
+    "name": null,
     "program": []
 };
-
-function queue_init(name) {
-    cmd_queue.creator = name;
-}
 
 function add_to_queue(name, spec) {
     cmd_queue.program.push({
@@ -36,6 +33,16 @@ function generate_to_js() {
     } catch (e) {
         alert(e);
     }
+
+    let form = FormData(document.getElementById('send-form'));
+    cmd_queue.creator = form.get('person') || 'Anonymus';
+    cmd_queue.name = form.get('name') || 'Untitled';
+    let host = form.get('ip'); //TODO validate IP
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", host);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    
 }
 
 function fill_name() {

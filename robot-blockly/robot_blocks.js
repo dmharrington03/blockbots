@@ -8,11 +8,11 @@ let move_json = {
         "options": [
           [
             "Forward",
-            "Forward"
+            "forward"
           ],
           [
             "Backward",
-            "Backward"
+            "backward"
           ]
         ]
       },

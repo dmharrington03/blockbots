@@ -2,7 +2,7 @@ Blockly.JavaScript['move_linear'] = function(block) {
     let direction = block.getFieldValue('direction');
     let secs = block.getFieldValue('seconds');
 
-    let code = `add_to_queue('${direction}', ${secs});`;
+    let code = `add_to_queue('${direction}', ${secs});\n`;
     return code;
 };
 
@@ -29,7 +29,7 @@ Blockly.JavaScript['toggle_light'] = function(block) {
     let state;
     if (block.getFieldValue('state') === "on")
         state = 1
-    else
+    else 
         state = 0
 
     return `add_to_queue('light_state', ${state});\n`;

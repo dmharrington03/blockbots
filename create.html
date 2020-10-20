@@ -125,7 +125,7 @@
 
               <h3 class="uk-heading-divider">Send to Robot:</h3>
 
-              <form class="uk-form-horizontal" autocomlpete="off">
+              <form class="uk-form-horizontal" autocomlpete="off" id="send-form">
                 <label class="uk-form-label" for="name">Program Name:</label>
                 <div class="uk-form-controls uk-form-controls-text">
                   <input class="uk-input" type="text" id="name" placeholder="&quot;Dance&quot;">
@@ -143,7 +143,10 @@
                 </div>
                 
                 <div class="uk-flex uk-flex-right">
-                  <button type="submit" class="uk-button uk-button-primary uk-margin-top">Send</button>
+                  <button type="submit" onclick="generate_to_js()" 
+                    class="uk-button uk-button-primary uk-margin-top">
+                    Send
+                  </button>
                 </div>
               </form>
               
