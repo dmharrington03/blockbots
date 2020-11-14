@@ -29,6 +29,7 @@ function send_to_robot() {
     }
 
     alert(code);
+    cmd_queue.program = [];
     try {
         eval(code);
     } catch (e) {
@@ -39,7 +40,7 @@ function send_to_robot() {
     cmd_queue.creator = form.get('person') || 'Anonymus';
     cmd_queue.name = form.get('name') || 'Untitled';
     cmd_queue.description = form.get('description') || '';
-    let host = form.get('ip');
+    let host = "http://" + form.get('ip');
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
