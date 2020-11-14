@@ -34,16 +34,18 @@
         <div class="uk-modal-dialog uk-margin-auto-vertical uk-modal-body">
           <h2 class="uk-modal-title">View Queued Programs</h2>
 
-          <form class="uk-form-stacked" autocomplete="off">
-            <label class="uk-form-label" for="host-ip">Host IP</label>
+          <form class="uk-form-stacked" id="address-form" autocomplete="off">
+            <label class="uk-form-label" for="host-ip">Host Robot Local IP</label>
             <div class="uk-form-controls">
-              <input type="text" class="uk-input" placeholder="e.g. 192.168.1.12">
+              <input type="text" class="uk-input" name="ip" placeholder="e.g. 192.168.1.12" required>
             </div>
 
-            <div class="uk-margin-top">
-              <button type="submit" class="uk-modal-close uk-button uk-button-primary uk-width-1-1">Go</button>
+            <div class="uk-margin-top uk-flex uk-flex-center">
+              <a href="create.html" class="uk-button">Back to Create Page</a>
+              <button type="button" onclick="get_queue()" class="uk-button uk-button-primary uk-width-1-2">Go</button>
             </div>
           </form>
+
         </div>
 
       </section>
