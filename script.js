@@ -3,12 +3,11 @@ var workspace = Blockly.inject('blocklyDiv',
     { toolbox: document.getElementById('toolbox') }
 );
 
-let con_out = document.querySelector('#console');
-
 // Setup functions
 let cmd_queue = {
     "creator": null,
     "name": null,
+    "description": null,
     "program": []
 };
 
@@ -19,14 +18,16 @@ function add_to_queue(name, spec) {
     });
 }
 
-function con_write(msg) {
-    con_out.innerHTML = msg;
-}
-
-function generate_to_js() {
+function send_to_robot() {
     Blockly.JavaScript.addReservedWords('code');
 
     let code = Blockly.JavaScript.workspaceToCode(workspace);
+
+    if (!code) {
+        alert("Create a program, then try again!");
+        return false;
+    }
+
     alert(code);
     try {
         eval(code);
@@ -34,19 +35,37 @@ function generate_to_js() {
         alert(e);
     }
 
-    let form = FormData(document.getElementById('send-form'));
+    let form = new FormData(document.getElementById('send-form'));
     cmd_queue.creator = form.get('person') || 'Anonymus';
     cmd_queue.name = form.get('name') || 'Untitled';
-    let host = form.get('ip'); //TODO validate IP
+    cmd_queue.description = form.get('description') || '';
+    let host = form.get('ip');
 
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", host);
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // success
+            alert("Program sent!");
+        } else if (this.readyState == 4) {
+            alert(`Error ${this.status}`);
+        }
+    };
+
+    xhttp.open("POST", host, true);
     xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send(JSON.stringify(cmd_queue));
     
 }
 
-function fill_name() {
+function fill_data() {
     document.querySelector('#name').value = document.querySelector('#name-content').innerText;
+
+    let description = document.querySelector('#description-content').innerText;
+    let description_field = document.querySelector('#description');
+    if (description !== "Add description")
+        description_field.value = description;
+    else
+        description_field.value = '';
 }
 
 
