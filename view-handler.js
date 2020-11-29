@@ -29,7 +29,7 @@ function connect_modal() {
 function get_queue() {
 
     let form = new FormData(document.getElementById('address-form'));
-    host = "http://" + form.get('ip') + "/get-queue"; 
+    host = "http://" + form.get('ip'); 
     console.log(host);
 
     var xhttp = new XMLHttpRequest();
@@ -41,22 +41,56 @@ function get_queue() {
             document.querySelector(".program-queue").style.display = "block";
             display_queue(this.response);
 
-        } else if (this.readyState == 4) {
+        } else {
             alert(`Error ${this.status}`);
         }
     };
 
-    xhttp.open("GET", host, true);
+    xhttp.open("GET", host + "/get-queue", true);
     xhttp.send();
+
+    alert("List received");
+    UIkit.modal('#connect-form').hide();
+    document.querySelector(".program-queue").style.display = "block";
 }
 
-function display_queue(queue) {
+function display_queue(res) {
     
-    //TODO handle json response and display it
+    queue = JSON.parse(res);
+
+    let queueList = document.getElementById("program-list");
+    for (let i = 0; i < queue.length; i++)
+    {
+        let program = document.createElement("li");
+        program.className = "uk-flex uk-flex-between";
+        program.innerHTML = `<div>
+        ${queue[i].name} –
+        <i>${queue[i].creator}</i>
+        </div>
+        <button class="uk-icon-button" uk-icon="play-circle" 
+        onclick="run_program(${queue[i].name})"></button>`;
+        queueList.appendChild(program);
+    }
+
     return;
 }
 
 function run_program(name) {
 
-    //TODO api call to the server telling it to run, remove from list
+    //* API call to the server telling it to run, remove from list
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert("Program Run Successfully");
+            get_queue();
+            return;
+
+        } else {
+            alert(`Error ${this.status}`);
+        }
+    };
+
+    xhttp.open("GET", host + `/run?prog=${name}`, true);
+    xhttp.send();
 }
