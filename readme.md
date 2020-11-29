@@ -1,51 +1,15 @@
-# BlockBot
+# Blockbots
+
+For the CS50 Final Project, I developed the front-end portion of this project, the backend is still a working project.
 ### *A high-level visual programming framework for robotics*
 
 ## Problem
 Blockbots aims to help educate people about programming through interaction with the real world. The gap between play-along tutorials/Scratch and abstract command-line based programs can be daunting, and many people do not know what programming actually does - escaping the trope of a hacker between a black and green terminal can be difficult. Thus, Blockbots not only seeks to help educate people about programming, but close the distance between perception and reality of programming in the eyes of the general public.
 
 ## Solution
-The main way Blockbots approaches this is through a visual programming interface 
-
-
+Blockbots is a flexible front-end web interface for use with IOT-enabled robots. The main way Blockbots approaches this problem is through a visual programming interface with side-by-side Python comparison, allowing the user to see how they program translates to actual code in real time.
 ## Features
-
-- Levels of complexity
-  - details of higher level vs. lower level (e.g. "Move forward" vs. "Send instruction linear move with spec x)
-  - eventually move to JS
-- Window
-  - configure robot
-  - save
-  - load
-  - canvas
-  - run button
-  - move lower button
-- Saving local programs
-- configuring custom robots
-
-## Technologies
-- Blockly
-  - Make a new configuration
-- UIKit
-- Vue? If I need it
-
-## Layout
-- Navbar
-  - Home
-  - New project
-  - read docs
-- Left panel (working space)
-  - Switch levels
-  - New configuration
-  - Connect
-- Main
-  - Blockly canvas
-  - Code view (if selected) with libraries 
-    - editable??
-- Right (working space)
-  - Run/add to queue
-
-- Homepage
-  - New project
-  - read tutorial
-  - use API
+- Write visual code using Google's Blockly API
+- Switch to the Python view to see how your program compares to actual code
+- Send your program to a compatible robot on your local network
+- View all queued programs for a robot and run them one at a time
